@@ -66,7 +66,11 @@ public class TestPerson {
     }
 
     @Test //Should return only men, not stinky janna players
-    public void testLambda(){
-        Person.lambda();
+    public void testLocalCLass(){
+        CheckGender check = new CheckGender();
+        Boolean actual = true;
+        Boolean expected = check.test(faker, Person.Sex.MALE);
+
+        Assert.assertEquals(actual, expected);
     }
 }

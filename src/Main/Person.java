@@ -41,7 +41,7 @@ public class Person implements CheckPerson{
     }
 
     @Override
-    public boolean test(Person p) {
+    public boolean test(Person p, Sex sex) {
         return false;
     }
 
@@ -60,7 +60,7 @@ public class Person implements CheckPerson{
 
     public static void printPersons(List<Person> roster, CheckPerson tester) {
         for (Person p : roster) {
-            if (tester.test(p)) {
+            if (tester.test(p, Sex.MALE)) {
                 p.printPerson();
             }
         }
@@ -74,13 +74,5 @@ public class Person implements CheckPerson{
         }
     }
 
-    public static void lambda() {
-        Person faker = new Person("Faker", LocalDate.of(1996, 4, 24), Person.Sex.MALE, "FakerBaby@gmail.com");
-        Person t1 = new Person("Tyer1", LocalDate.of(1990, 4, 20), Person.Sex.MALE, "DiscountCodeAlpha.@gmail.com");
-        Person doubleLift = new Person("DoubleLift", LocalDate.of(2000, 12, 2),
-                Person.Sex.MALE, "ADC-Sucks-in-s10@gmail.com");
-        Person support = new Person("JannaMain222", LocalDate.of(1990, 3, 20), Sex.FEMALE, "JannaRules@Gmail.com");
-        ArrayList<Person> persons = new ArrayList<>(Arrays.asList(faker, t1, doubleLift, support));
-        printPersons(persons, person -> person.getGender().equals(Sex.MALE));
-    }
+
 }
