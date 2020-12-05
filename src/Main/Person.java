@@ -6,6 +6,14 @@ import java.util.List;
 
 public class Person implements CheckPerson{
 
+    public static class CheckGender implements CheckPerson{
+
+        @Override
+        public boolean test(Person p, Person.Sex sex) {
+            return p.getGender().equals(sex);
+        }
+    }
+
     public enum Sex {
         MALE, FEMALE
     }
@@ -58,9 +66,10 @@ public class Person implements CheckPerson{
         }
     }
 
-    public static void printPersons(List<Person> roster, CheckPerson tester) {
+    public static void printPersons(List<Person> roster, Sex sex) {
+        CheckGender check = new CheckGender();
         for (Person p : roster) {
-            if (tester.test(p, Sex.MALE)) {
+            if (check.test(p, sex)) {
                 p.printPerson();
             }
         }

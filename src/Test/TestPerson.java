@@ -14,6 +14,7 @@ public class TestPerson {
     private Person faker;
     private Person t1;
     private Person doubleLift;
+    private Person sneaky;
     ArrayList<Person> persons;
 
     @Before
@@ -22,6 +23,8 @@ public class TestPerson {
         t1 = new Person("Tyer1", LocalDate.of(1990, 4, 20), Person.Sex.MALE, "DiscountCodeAlpha.@gmail.com");
         doubleLift = new Person("DoubleLift", LocalDate.of(2000, 12, 2),
                 Person.Sex.MALE, "ADC-Sucks-in-s10@gmail.com");
+        sneaky = new Person("Sneaky", LocalDate.of(1995, 4, 20), Person.Sex.FEMALE, "NotATrap@gmail.com");
+
         persons = new ArrayList<>(Arrays.asList(faker, t1, doubleLift));
 
     }
@@ -66,11 +69,7 @@ public class TestPerson {
     }
 
     @Test //Should return only men, not stinky janna players
-    public void testLocalCLass(){
-        CheckGender check = new CheckGender();
-        Boolean actual = true;
-        Boolean expected = check.test(faker, Person.Sex.MALE);
-
-        Assert.assertEquals(actual, expected);
+    public void testAnon(){
+        Person.printPersons(persons, Person.Sex.FEMALE);
     }
 }
