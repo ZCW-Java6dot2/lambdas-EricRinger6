@@ -65,5 +65,8 @@ public class TestPerson {
         Person.printPersonsWithinAgeRange(persons, 10, 29);
     }
 
-
+    @Test //Should return only men, not stinky janna players
+    public void testLambda(){
+        Person.lambda();
+    }
 }

@@ -1,5 +1,7 @@
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Person implements CheckPerson{
@@ -70,5 +72,15 @@ public class Person implements CheckPerson{
                 p.printPerson();
             }
         }
+    }
+
+    public static void lambda() {
+        Person faker = new Person("Faker", LocalDate.of(1996, 4, 24), Person.Sex.MALE, "FakerBaby@gmail.com");
+        Person t1 = new Person("Tyer1", LocalDate.of(1990, 4, 20), Person.Sex.MALE, "DiscountCodeAlpha.@gmail.com");
+        Person doubleLift = new Person("DoubleLift", LocalDate.of(2000, 12, 2),
+                Person.Sex.MALE, "ADC-Sucks-in-s10@gmail.com");
+        Person support = new Person("JannaMain222", LocalDate.of(1990, 3, 20), Sex.FEMALE, "JannaRules@Gmail.com");
+        ArrayList<Person> persons = new ArrayList<>(Arrays.asList(faker, t1, doubleLift));
+        printPersons(persons, person -> person.getGender().equals(Sex.MALE));
     }
 }
