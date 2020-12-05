@@ -80,7 +80,7 @@ public class Person implements CheckPerson{
         Person doubleLift = new Person("DoubleLift", LocalDate.of(2000, 12, 2),
                 Person.Sex.MALE, "ADC-Sucks-in-s10@gmail.com");
         Person support = new Person("JannaMain222", LocalDate.of(1990, 3, 20), Sex.FEMALE, "JannaRules@Gmail.com");
-        ArrayList<Person> persons = new ArrayList<>(Arrays.asList(faker, t1, doubleLift));
+        ArrayList<Person> persons = new ArrayList<>(Arrays.asList(faker, t1, doubleLift, support));
         printPersons(persons, person -> person.getGender().equals(Sex.MALE));
     }
 }
